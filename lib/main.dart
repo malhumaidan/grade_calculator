@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
+import 'home_screen.dart';
+
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
-
-  final myController = TextEditingController();
 
   // This widget is the root of your application.
   @override
@@ -17,41 +17,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: Scaffold(
-          appBar: AppBar(
-            title: Text("Grade Calculator"),
-          ),
-          body: Column(
-            children: [
-              TextField(
-                controller: myController,
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(50)),
-                    prefixIcon: Icon(
-                      Icons.percent,
-                      color: Colors.blue,
-                    )),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  if (int.parse(myController.text) >= 90) {
-                    print("A");
-                  } else if (int.parse(myController.text) >= 80) {
-                    print("B");
-                  } else if (int.parse(myController.text) >= 70) {
-                    print("C");
-                  } else if (int.parse(myController.text) >= 60) {
-                    print("D");
-                  } else if (int.parse(myController.text) < 60) {
-                    print("F");
-                  }
-                },
-                child: Text("calculate"),
-              )
-            ],
-          ),
-        ));
+        home: HomePage());
   }
 }
 
